@@ -19,7 +19,9 @@ auto main(int argc, char **argv) -> int
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
-        // 
+        // Neue Option hinzugefügt, mit dem Parametername "-c, --count"
+        // In der Variable count (von oben) wird der wert gespeichert
+        // "The count" wird in der -h/ --help als Hilfestellung angezeigt
         app.add_option("-c,--count", count, "The count");
         app.parse(argc, argv);
     }
