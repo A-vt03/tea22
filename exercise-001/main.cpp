@@ -36,9 +36,29 @@ auto main(int argc, char **argv) -> int
      * More info at https://fmt.dev/latest/api.html
      */
     fmt::print("Hello, {}!\n", app.get_name());
-    fmt::print("My count, {}", count);
+    fmt::print("My count, {}\n", count);
 
     /* INSERT YOUR CODE HERE */
+    // Deklarieren eines leeren Vektors vom Typ int
+    std::vector<int> randomVector;
+    // Eine for-Schleife, die von 0 bis zu der Variablen `count` läuft.
+    // In jeder Iteration wird der aktuelle Wert von i als Zufallszahl (hier einfach `i` selbst) verwendet
+    // und in den Vektor eingefügt.
+    for (int i=0; i<count;i++)
+    {
+        // Aktueller Wert von `i` wird als Zufallszahl verwendet
+        int randomNumber = i;
+        // Fügen der "zufälligen" Zahl zum Vektor hinzu
+        randomVector.push_back(randomNumber);
+    }
+    // Deklarieren eines Iterators für den Vektor vom Typ `std::vector<int>::iterator`
+    std::vector<int>::iterator iter;
+    // Eine for-Schleife, die den Vektor durchläuft
+    // Der Iterator startet bei `randomVector.begin()` und endet bei `randomVector.end()`
+    for (iter = randomVector.begin(); iter != randomVector.end(); iter++) {
+        fmt::print("Vector value: {}\n", *iter);
+    }
+
 
     return 0; /* exit gracefully*/
 }
