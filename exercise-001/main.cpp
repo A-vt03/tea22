@@ -46,8 +46,8 @@ auto main(int argc, char **argv) -> int
     // und in den Vektor eingefügt.
     for (int i=0; i<count;i++)
     {
-        // Aktueller Wert von `i` wird als Zufallszahl verwendet
-        int randomNumber = i;
+        // Generiere eine Nummer zwischen 0 und 100
+        int randomNumber = rand() %101;
         // Fügen der "zufälligen" Zahl zum Vektor hinzu
         randomVector.push_back(randomNumber);
     }
