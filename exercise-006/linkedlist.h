@@ -1,28 +1,26 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef MY_FANCY_LINKED_LIST_H__
+#define MY_FANCY_LINKED_LIST_H__
 
-#include <stdint.h>
-
-// Definition der Knotenstruktur
 typedef struct ListNode {
-    unsigned int data;          // Daten des Knotens
-    struct ListNode* pNext;     // Zeiger auf den nächsten Knoten
+    unsigned int data;
+    struct ListNode* pNext;
 } ListNode_t;
 
-// Definition der Listenstruktur
 typedef struct List {
-    ListNode_t* pHead;          // Zeiger auf den Kopf der Liste
-    ListNode_t* pTail;          // Zeiger auf das Ende der Liste
-    unsigned int size;          // Anzahl der Knoten in der Liste
+    ListNode_t* pHead;
+    ListNode_t* pTail;
+    unsigned int size;
 } List_t;
 
-// Funktionen
-List_t* CreateList();                                  // Erstellt eine neue Liste
-ListNode_t* NewListNode(unsigned int data);            // Erstellt einen neuen Knoten
-void FreeListNode(ListNode_t* elem);                   // Gibt Speicher eines Knotens frei
-int InsertIntoLinkedList(List_t* list, unsigned int data, unsigned int position); // Fügt ein Element ein
-int RemoveFromLinkedList(List_t* list, unsigned int position);                    // Entfernt ein Element
-void IterateLinkedList(const List_t* list);            // Gibt die gesamte Liste aus
-void FreeLinkedList(List_t* list);                     // Gibt die gesamte Liste frei
+ListNode_t* NewListNode(void);
+void FreeListNode(ListNode_t* elem);
 
-#endif // LINKEDLIST_H
+List_t* NewList(void);
+void FreeList(List_t*);
+
+int InsertIntoLinkedList(List_t* list, ListNode_t* elem);
+int InsertIntoLinkedListAfterNode(List_t* list, ListNode_t* node /* the node we insert the element into */, ListNode_t* elem);
+int RemoveFromList(List_t* list, ListNode_t* elem);
+ListNode_t* GetNext(const List_t* list, ListNode_t* elem);
+
+#endif
